@@ -21,7 +21,7 @@ body {
     padding: 16px;
 }
 
-.gameContainer {
+.mainContainer {
     background-color: darkgrey;
     display: flex;
     flex-direction: column;
