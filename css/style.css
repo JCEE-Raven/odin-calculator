@@ -4,3 +4,29 @@
     box-sizing: border-box;
 }
 
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerContainer,
+.footerContainer {
+    background-color: darkslategray;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+}
+
+.gameContainer {
+    background-color: darkgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
