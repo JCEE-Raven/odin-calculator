@@ -11,9 +11,16 @@ let firstNumber = 0,
 
     
     const calculatorDisplay = document.querySelector('.display');
+    const buttons = document.querySelector('.buttonContainer')
     
     //on page load update display to 0
     updateDisplay(0);
+
+    //event listeners
+    buttons.addEventListener('click', (event) => {
+        console.log(event);
+        updateDisplay(event.target.textContent);
+    })
 
 //Functions
 // function add(num1, num2) {
@@ -37,8 +44,7 @@ let firstNumber = 0,
 // }
 
 function updateDisplay(displayValue) {
-    console.log(calculatorDisplay.textContent)
-    calculatorDisplay.textContent = displayValue;
+    calculatorDisplay.textContent += displayValue;
 }
 
 function operate(num1, num2, op) {
@@ -63,16 +69,16 @@ function operate(num1, num2, op) {
 
 
 //testing!!
-console.log('add function 1+1')
-console.log(operate(firstNumber = 1, secondNumber = 1, '+'));
+// console.log('add function 1+1')
+// console.log(operate(firstNumber = 1, secondNumber = 1, '+'));
 
-console.log('subtract function 2-1')
-console.log(operate(firstNumber = 2, secondNumber = 1, '-'));
+// console.log('subtract function 2-1')
+// console.log(operate(firstNumber = 2, secondNumber = 1, '-'));
 
-console.log('multiply function 10*2')
-console.log(operate(firstNumber = 10, secondNumber = 2, '*'));
+// console.log('multiply function 10*2')
+// console.log(operate(firstNumber = 10, secondNumber = 2, '*'));
 
-console.log('divide function 10/2')
-console.log(operate(firstNumber = 10, secondNumber = 2, '/'));
-console.log('divide by 0?')
-console.log(operate(firstNumber = 10, secondNumber = 0, '/'))
+// console.log('divide function 10/2')
+// console.log(operate(firstNumber = 10, secondNumber = 2, '/'));
+// console.log('divide by 0?')
+// console.log(operate(firstNumber = 10, secondNumber = 0, '/'))
