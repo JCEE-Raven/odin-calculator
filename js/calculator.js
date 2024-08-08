@@ -1,28 +1,37 @@
 //a calculator webpage built for the odin project 
 // foundation course final assignment
-//v0.1 Jaycee Raven 29-7-24
+//v0.2 Jaycee Raven 29-7-24
 
-//Variables
-let firstNumber = 0,
-    secondNumber = 0,
-    result = 0,
-    operator = null;
-    // displayValue = '0';
+//variables
+let currentNum = '',
+    previousNum = '',
+    operator = '';
 
-    
-    const calculatorDisplay = document.querySelector('.display');
-    const buttons = document.querySelector('.buttonContainer')
-    
-    //on page load update display to 0
-    updateDisplay(0);
+//display
+const currentDisplayNumber = document.querySelector('.display')
+//function buttons
+const equal = document.querySelector('.equal'),
+    decimal = document.querySelector('.decimal'),
+    clear = document.querySelector('.clear');
+//operator buttons
+const operatorButtons = document.querySelectorAll('.operatorButton');
+//number buttons
+const numberButtons = document.querySelectorAll('.numberButton');
 
-    //event listeners
-    buttons.addEventListener('click', (event) => {
-        console.log(event);
+//event listeners
+numberButtons.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
         updateDisplay(event.target.textContent);
     })
+})
 
-//Functions
+operatorButtons.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+        assignOperator(event.target.textContent);
+    })
+})
+
+//functions
 // function add(num1, num2) {
 //     return num1 + num2;
 // }
@@ -43,8 +52,19 @@ let firstNumber = 0,
 //     return num1 / num2
 // }
 
-function updateDisplay(displayValue) {
-    calculatorDisplay.textContent += displayValue;
+function updateDisplay(number) {
+    if(currentNum.length <= 11)
+    {
+        currentNum += number;
+        currentDisplayNumber.textContent = currentNum;
+    }
+}
+
+function assignOperator(operator) {
+    operator = operator;
+    previousNum = currentNum;
+    currentNum = '';
+    currentDisplayNumber.textContent = operator;
 }
 
 function operate(num1, num2, op) {
@@ -66,7 +86,6 @@ function operate(num1, num2, op) {
             break;
     }
 }
-
 
 //testing!!
 // console.log('add function 1+1')
