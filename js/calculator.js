@@ -34,27 +34,7 @@ operatorButtons.forEach((btn) => {
 
 equal.addEventListener('click', operate);
 
-//functions
-// function add(num1, num2) {
-//     return num1 + num2;
-// }
-
-// function subtract(num1, num2) {
-//     return num1 - num2;
-// }
-
-// function multiply(num1, num2) {   //TEST FUNCTIONS
-//     return num1 * num2;           //Moved functionality
-// }                                 //Leaving here for now delete later
-
-// function divide(num1, num2) {
-//     if(secondNumber === 0) {
-//         return 'Don\'t do that!!'
-//     }
-    
-//     return num1 / num2
-// }
-
+//Functions
 function updateDisplay(number) {
     if(currentNum.length <= 11)
     {
@@ -102,18 +82,3 @@ function operate() {
     currentDisplayNumber.textContent = previousNum;
     operator = '';
 }
-
-//testing!!
-// console.log('add function 1+1')
-// console.log(operate(firstNumber = 1, secondNumber = 1, '+'));
-
-// console.log('subtract function 2-1')
-// console.log(operate(firstNumber = 2, secondNumber = 1, '-'));
-
-// console.log('multiply function 10*2')
-// console.log(operate(firstNumber = 10, secondNumber = 2, '*'));
-
-// console.log('divide function 10/2')
-// console.log(operate(firstNumber = 10, secondNumber = 2, '/'));
-// console.log('divide by 0?')
-// console.log(operate(firstNumber = 10, secondNumber = 0, '/'))
