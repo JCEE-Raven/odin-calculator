@@ -68,11 +68,12 @@ function operate() {
             console.log(previousNum);
             break;
         case '/':
-            if(previousNum === 0) {
+            if(currentNum === 0) {
                 currentDisplayNumber.textContent = 'Don\'t do that!!';
                 currentNum = '';
                 previousNum = '';
                 operator = '';
+                return;
             }
             previousNum /= previousNum;
             console.log(previousNum);
