@@ -5,6 +5,7 @@
 //variables
 let currentNum = '',
     previousNum = '',
+    result = '',
     operator = '';
 
 //display
@@ -30,6 +31,8 @@ operatorButtons.forEach((btn) => {
         assignOperator(event.target.textContent);
     })
 })
+
+equal.addEventListener('click', operate);
 
 //functions
 // function add(num1, num2) {
@@ -60,31 +63,44 @@ function updateDisplay(number) {
     }
 }
 
-function assignOperator(operator) {
-    operator = operator;
+function assignOperator(op) {
+    operator = op;
     previousNum = currentNum;
     currentNum = '';
     currentDisplayNumber.textContent = operator;
 }
 
-function operate(num1, num2, op) {
-    switch (op) {
+function operate() {
+    currentNum = Number(currentNum);
+    previousNum = Number(previousNum);
+
+    switch (operator) {
         case '+':
-            return num1 + num2;
+            previousNum += previousNum;
+            console.log(previousNum);
             break;
         case '-':
-            return num1 - num2;
+            previousNum -= previousNum;
+            console.log(previousNum);
             break;
         case '*':
-            return num1 * num2;
+            previousNum *= previousNum;
+            console.log(previousNum);
             break;
         case '/':
-            if(secondNumber === 0) {
-                return 'Don\'t do that!!'
+            if(previousNum === 0) {
+                currentDisplayNumber.textContent = 'Don\'t do that!!';
+                currentNum = '';
+                previousNum = '';
+                operator = '';
             }
-            return num1 / num2
+            previousNum /= previousNum;
+            console.log(previousNum);
             break;
     }
+    previousNum = previousNum.toString();
+    currentDisplayNumber.textContent = previousNum;
+    operator = '';
 }
 
 //testing!!
