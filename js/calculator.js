@@ -5,7 +5,15 @@
 //Variables
 let firstNumber = 0,
     secondNumber = 0,
+    result = 0,
     operator = null;
+    // displayValue = '0';
+
+    
+    const calculatorDisplay = document.querySelector('.display');
+    
+    //on page load update display to 0
+    updateDisplay(0);
 
 //Functions
 // function add(num1, num2) {
@@ -27,6 +35,11 @@ let firstNumber = 0,
     
 //     return num1 / num2
 // }
+
+function updateDisplay(displayValue) {
+    console.log(calculatorDisplay.textContent)
+    calculatorDisplay.textContent = displayValue;
+}
 
 function operate(num1, num2, op) {
     switch (op) {
