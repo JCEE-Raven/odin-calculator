@@ -5,7 +5,7 @@
 //variables
 let currentNum = '',
     previousNum = '',
-    result = '',
+    resultFlag = false,
     operator = '';
 
 //display
@@ -23,6 +23,7 @@ const numberButtons = document.querySelectorAll('.numberButton');
 numberButtons.forEach((btn) => {
     btn.addEventListener('click', (event) => {
         updateDisplay(event.target.textContent);
+        console.log(event.target.textContent)
     })
 })
 
@@ -36,10 +37,19 @@ equal.addEventListener('click', operate);
 
 //Functions
 function updateDisplay(number) {
+    console.log('in updateDisplay')
+    if(resultFlag == true && operator === '') {
+        currentNum = '';
+        currentDisplayNumber.textContent = currentNum;
+        resultFlag = false;
+    }
     if(currentNum.length <= 11)
     {
+        console.log(currentNum);
         currentNum += number;
+        console.log(currentNum);
         currentDisplayNumber.textContent = currentNum;
+        console.log(currentNum);
     }
 }
 
@@ -56,16 +66,16 @@ function operate() {
 
     switch (operator) {
         case '+':
-            previousNum += previousNum;
-            console.log(previousNum);
+            previousNum += currentNum;
+            displayResult();
             break;
         case '-':
-            previousNum -= previousNum;
-            console.log(previousNum);
+            previousNum -= currentNum;
+            displayResult();
             break;
         case '*':
-            previousNum *= previousNum;
-            console.log(previousNum);
+            previousNum *= currentNum;
+            displayResult();
             break;
         case '/':
             if(currentNum === 0) {
@@ -75,11 +85,19 @@ function operate() {
                 operator = '';
                 return;
             }
-            previousNum /= previousNum;
-            console.log(previousNum);
+            previousNum /= currentNum;
+            displayResult();
             break;
     }
     previousNum = previousNum.toString();
+    currentNum = currentNum.toString();
+}
+
+function displayResult() {
+    resultFlag = true;
     currentDisplayNumber.textContent = previousNum;
+    currentNum = previousNum;
+    previousNum = '';
     operator = '';
+    
 }
