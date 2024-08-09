@@ -30,3 +30,85 @@ body {
     gap: 16px;
     flex: 1;
 }
+
+.calculator {
+    background-color: darkgreen;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px; /* Maximum width for larger screens */
+}
+
+.display {
+    background-color: lightgray;
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.buttonsRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+button {
+    flex: 1;
+    margin: 5px;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: lightblue;
+}
+
+.functionButton {
+    background-color: lightcoral;
+}
+
+.operatorButton {
+    background-color: lightgreen;
+}
+
+.numberButton {
+    background-color: lightyellow;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .display {
+        font-size: 20px; /* Smaller font size for smaller screens */
+    }
+
+    button {
+        padding: 10px; /* Smaller padding for buttons */
+        font-size: 16px; /* Smaller font size for buttons */
+    }
+}
+
+@media (max-width: 400px) {
+    .display {
+        font-size: 18px; /* Even smaller font size for very small screens */
+    }
+
+    button {
+        padding: 8px; /* Even smaller padding for buttons */
+        font-size: 14px; /* Even smaller font size for buttons */
+    }
+}
