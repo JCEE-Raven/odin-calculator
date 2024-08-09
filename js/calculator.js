@@ -11,9 +11,9 @@ let currentNum = '',
 //display
 const currentDisplayNumber = document.querySelector('.display')
 //function buttons
-const equal = document.querySelector('.equal'),
-    decimal = document.querySelector('.decimal'),
-    clear = document.querySelector('.clear');
+const equalBTN = document.querySelector('.equal'),
+    decimalBTN = document.querySelector('.decimal'),
+    clearBTN = document.querySelector('.clear');
 //operator buttons
 const operatorButtons = document.querySelectorAll('.operatorButton');
 //number buttons
@@ -33,7 +33,9 @@ operatorButtons.forEach((btn) => {
     })
 })
 
-equal.addEventListener('click', operate);
+equalBTN.addEventListener('click', operate);
+
+clearBTN.addEventListener('click', clear);
 
 //Functions
 function updateDisplay(number) {
@@ -100,4 +102,12 @@ function displayResult() {
     previousNum = '';
     operator = '';
     
+}
+
+function clear() {
+    currentDisplayNumber.textContent = '';
+    currentNum = '';
+    previousNum = '';
+    operator = '';
+    resultFlag = false;
 }
