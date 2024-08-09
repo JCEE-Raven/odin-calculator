@@ -6,6 +6,7 @@
 let currentNum = '',
     previousNum = '',
     resultFlag = false,
+    decimalFlag = false,
     operator = '';
 
 //display
@@ -35,7 +36,9 @@ operatorButtons.forEach((btn) => {
 
 equalBTN.addEventListener('click', operate);
 
-clearBTN.addEventListener('click', clear);
+clearBTN.addEventListener('click', clearDisplay);
+
+decimalBTN.addEventListener('click', decimalCheck);
 
 //Functions
 function updateDisplay(number) {
@@ -82,9 +85,7 @@ function operate() {
         case '/':
             if(currentNum === 0) {
                 currentDisplayNumber.textContent = 'Don\'t do that!!';
-                currentNum = '';
-                previousNum = '';
-                operator = '';
+                resetGlobals
                 return;
             }
             previousNum /= currentNum;
@@ -101,13 +102,31 @@ function displayResult() {
     currentNum = previousNum;
     previousNum = '';
     operator = '';
+    decimalFlag = false;
     
 }
 
-function clear() {
+function clearDisplay() {
     currentDisplayNumber.textContent = '';
-    currentNum = '';
-    previousNum = '';
+    resetGlobals();
+}
+
+function decimalCheck () {
+    if(decimalFlag == true && previousNum.includes('.')) {
+        decimalFlag = false;
+    }
+
+    if(decimalFlag == false) {
+        decimalFlag = true;
+        currentNum += '.'
+        currentDisplayNumber.textContent = currentNum
+    }
+}
+
+function resetGlobals() {
+    currentNum = '',
+    previousNum = '',
+    resultFlag = false,
+    decimalFlag = false,
     operator = '';
-    resultFlag = false;
 }
